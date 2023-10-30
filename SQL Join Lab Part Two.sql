@@ -40,11 +40,16 @@ RIGHT JOIN category
 USING (category_id)
 GROUP BY name;
 
-
 -- Bonus
 -- 5. Identify the film categories with the longest average running time.
-
-
+SELECT *, AVG(length) AS 'avg_duration'
+FROM film
+JOIN film_category
+USING (film_id)
+RIGHT JOIN category
+USING (category_id)
+GROUP BY name
+ORDER BY avg_duration DESC;
 
 -- 6. Display the top 10 most frequently rented movies in descending order.
 
